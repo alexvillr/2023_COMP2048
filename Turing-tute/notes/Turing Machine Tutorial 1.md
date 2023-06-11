@@ -9,12 +9,12 @@
 | ----------- | -------------------------------- | --- |
 | States only | (Same transition options as TMs) | $\delta \set{S} \times \set{A}_{\text{tape read}} \implies \set{S} \times \set{A}_{\text{tape write}} \times \set{L, R}$    |
 
-| Machine                  | Language               | Example              | Implementation |                                                                 |
-| ------------------------ | ---------------------- | -------------------- | -------------- |
-| Turing Machine           | Recursively enumerable | pretty much anything | Infinite tape  |                                                                 |     |     |
-| Linear-bounded Automaton | Context sensitive      | $\set{a^n b^n c^n    | n \ge 0}$      | Finite tape (arbitrary access; linear multiple of input length) |     |     |
-| Pushdown Automaton       | Context free           | $\set{a^n b^n        \| n \ge 0}$      | Stack machine (push/pop only)                                   |     |     |
-| Finite State Machine     | Regular                | $\set{a^n            | n \ge 0}$      | Combinatoric logic with states                                                                |     |     |
+| Machine                  | Language               | Example                        | Implementation                                                  | 
+| ------------------------ | ---------------------- | ------------------------------ | --------------------------------------------------------------- |
+| Turing Machine           | Recursively enumerable | pretty much anything           | Infinite tape                                                   | 
+| Linear-bounded Automaton | Context sensitive      | $\set{a^n b^n c^n \| n \ge 0}$ | Finite tape (arbitrary access; linear multiple of input length) | 
+| Pushdown Automaton       | Context free           | $\set{a^n b^n \| n \ge 0}$     | Stack machine (push/pop only)                                   | 
+| Finite State Machine     | Regular                | $\set{a^n \| n \ge 0}$         | Combinatoric logic with states                                  | 
 
 FSM transition table vs TM transition table
 
@@ -26,9 +26,12 @@ FSM transition table vs TM transition table
 | S_prev | a_in | S_next | a_out | direction |
 | ------ | ---- | ------ | ----- | --------- |
 | S1     | 0    | S2     | X     | L         |
-| S1     | 1    | S2     | X     | R          |
+| S1     | 1    | S2     | X     | R         |
 # Question 2
-## Write down the formal description for the Turing machine that decides the language $A = \{\text{w } \# \text{ w } | \text{ w} \in \{0, 1\} ∗\}$. You may use a transition table or diagram to describe the transition rules for the machine.
+## Write down the formal description for the Turing machine that decides the language A. You may use a transition table or diagram to describe the transition rules for the machine.
+$$
+A = \{\text{w } \\# \text{ w } | \text{ w} \in \{0, 1\} ∗\}
+$$
 - Note. Any unspecified transitions are considered a rejection
 see [[turing_q2.py]]
 ### Transition table
@@ -52,7 +55,7 @@ see [[turing_q2.py]]
 | q8     | X       | q8     |       | R         |
 | q8     | else    | accept |       | R          |
 ### Diagram
-![[TM_tute_q2.svg]]
+![](./images/TM_tute_q2.svg)
 
 
 # Question 3
@@ -105,7 +108,7 @@ $\text{Turing Machine } M = \set{Q, \Sigma, \Gamma, \delta, Q_0, Q_{accept}, Q_{
 |   $q_4$    |    X     |   $q_4$    |     X     |         L          |
 
 ###### State diagram
-![[TM_q3.svg]]
+![](./images/TM_q3.svg)
 
 #### d) a sample run of the machine on the string 0000 noting its configuration at each step
 	See turing_machine.py and turing_q3.py to get this output yourself
@@ -153,7 +156,7 @@ for a in As:
 ```
 #### b) a formal description of the Turing machine
 - $Q = \set{q_0, q_1, q_2, q_3, q_4, q_5, q_6, q_a}$
-- $\Sigma = \set{a, b, c, x, y, z, \_}\text{ Where \_ represents the blank symbol}$
+- $\Sigma = \set{a, b, c, x, y, z, \text{␣}}\text{ Where ␣ represents the blank symbol}$
 - $\Gamma = \Sigma$
 - $\delta\text{ = Transition function where:}$
 	1. $\delta(q_0, a) = (q_1, x, R)$
@@ -171,7 +174,7 @@ for a in As:
 	13. $\delta(q_4, y) = (q_4, b, L)$
 	14. $\delta(q_5, a) = (q_5, a, L)$
 	15. $\delta(q_5, x) = (q_0, x, R)$
-	16. $\delta(q_6, \_) = (q_a, \_, L)$
+	16. $\delta(q_6, \text{␣}) = (q_a, \text{␣}, L)$
 - $Q_0 = q_0 \in Q$
 - $Q_{accept} = q_a \in Q$
 #### c) a transition/state diagram of the Turing machine
@@ -193,9 +196,9 @@ for a in As:
 |   $q_4$    |   $y$    |   $q_4$    |    $b$    |        $L$         |
 |   $q_5$    |   $a$    |   $q_5$    |    $a$    |        $L$         |
 |   $q_5$    |   $x$    |   $q_0$    |    $x$    |        $R$         |
-|   $q_6$    |   $\_$   |   $q_a$    |   $\_$    |        $L$         |
+|   $q_6$    |   ␣   |   $q_a$    |   ␣    |        $L$         |
 ###### State diagram
-![[TM_q4.svg]]
+![](./images/TM_q4.svg)
 #### d) a sample run of the machine on the string 0000 noting its configuration at each step
 ```zsh
 Please enter your string to see if it is accepted by language C = {a^i b^j c^k | i * j = k && i, j, k >= 1}: aabcc
