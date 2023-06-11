@@ -23,7 +23,7 @@ $$ \text{states: } S, \text{initial state: } S_0 \in S \text{Accept states} S_{y
 ![[Simple_Pressure_Plate_FSM.svg]]![[Complex_With_Otherside_Close.svg]]
 
 # Question 2
-![q2][./images/Q2.svg]
+![q2](./images/Q2.svg)
 ## List all possible states
 $$S = \{s_1, s_2, s_3\}; S_{yes} = \{S_2\}$$
 ## Write the transition table
