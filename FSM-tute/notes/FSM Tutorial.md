@@ -1,4 +1,4 @@
-for all questions, see [[main.py]]
+for all questions, see [[../code/main.py]]
 # Question 1
 ## Define the main components of an FSM and their use
 
@@ -20,7 +20,7 @@ $$ \text{states: } S, \text{initial state: } S_0 \in S \text{Accept states} S_{y
     - Could close on pressure plate signal from OTHER side
 	    - In this case we need seperate states for each direction
 
-![[Simple_Pressure_Plate_FSM.svg]]![[Complex_With_Otherside_Close.svg]]
+![](./images/Simple_Pressure_Plate_FSM.svg)![](./images/Complex_With_Otherside_Close.svg)
 
 # Question 2
 ![q2](./images/Q2.svg)
@@ -43,7 +43,7 @@ $$\text{Begin at } s_1, 0 \implies s_1, 0 \implies, s_1, 0 \implies s_1, 1 \impl
 	Any input ending with a 1 and an even number of zeros, that is $*1(00)*$
 
 # Question 3
-![[Question_3.svg]]
+![](./images/Question_3.svg)
 ## List all the states
 $$S = \{s_1, s_2, s_3, s_4, s_5\}; S_{yes} = \{s_2, s_4\}; A = \{0, 1\}$$
 ## Write the transition table
@@ -66,9 +66,9 @@ Strings that end with the same character they begin with, e.g.
 $$1 \ || \ 0 \ || \ (1.*1) \ || \ (0 .*0)$$ 
 # Question 4
 ## only accepts even 0s
-![[Q4a.svg]]
+![](./images/Q4a.svg)
 ## only accepts odd ones
-![[Q4b.svg]]
+![](./images/Q4b.svg)
 ## Union of these machines
 |       | 0     | 1     | Labels and notes                      |
 | ----- | ----- | ----- | ------------------------------------- |
@@ -77,7 +77,7 @@ $$1 \ || \ 0 \ || \ (1.*1) \ || \ (0 .*0)$$
 | $s_3$ | $s_1$ | $s_4$ | Reject: odd zeroes, even ones         |
 | $s_4$ | $s_4$ | $s_3$ | Accept: odd zeroes, odd ones          |
 
-![[Q4c.svg]]
+![](./images/Q4c.svg)
 # Question 5
 - Efficient to implement, just a tiny amount of volatile storage and a couple of lookup tables
 	- $n$ states can be stored in $\lceil{\log_2} n \rceil$ bits of volatile storage
@@ -108,6 +108,6 @@ $$1 \ || \ 0 \ || \ (1.*1) \ || \ (0 .*0)$$
 | $s3$ | $s_3$ | $s_2$ | $s_3$ | $s_2$ | $s_1$ |
 | $s4$ | $s_4$ | $s_2$ | $s_4$ | $s_2$ | $s_1$ |
 
-![[Q6.svg]]
+![](./images/Q6.svg)
 
 
